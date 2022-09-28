@@ -7,6 +7,9 @@
 </head>
 <body>
 
+<!-- C:\Ale\Cursos\Curso Git - codigofacilito -->
+
+
 <!-- setear nuestro nombre -->
 git config --global user.name "Ale"
 
@@ -18,6 +21,35 @@ $ git config --global color.ui true
 
 $ git init 
 <!-- Le avisa a Git que este es nuestro proyecto y empiece a monitorear los cambios -->
+
+$ git status
+
+$ git add nombredelarchivo  <!-- agrega el archivo al modo Stage como para luego subirlo al repo -->
+$ git add -A  <!-- agrega todo -->
+
+
+
+$ git commit -m "mensaje" <!-- Guardamos los cambios con un mensaje para identificarlo -->
+
+$ git log <!-- nos da una lista de los commits y sus SHA -->
+$ git log > commits.txt <!-- guarda la lista de los commits en un .txt -->
+
+$ git checkout ShaDelCommit o NombreDeLaRama <!-- viajamos a través de nuestros commits o nuestras ramas, ingresando el SHA del commit -->
+$ git checkout Master <!-- nos mueve al último commit -->
+
+$ git reset --soft ShaDelCommit <!-- elimina el commit especificado, SIN modificar el 'working area', SIN tocar el código -->
+$ git reset --mixed ShaDelCommit <!-- elimina el commit especificado en el staging area, sin modificar el 'working area', sin tocar el código -->
+$ git reset --hard ShaDelCommit <!-- viaja hasta el commit especificado y borra todo lo posterior, inclusive el código-->
+
+<!-- el Commit HEAD es donde nos encontramos ahora
+Las Ramas son una linea de tiempo en nuestro proyecto, que nos sirve para arreglar errores, experimentar, etc. -->
+
+$ git branch nombreDeLaRama <!-- crea una rama con ese nombre -->
+$ git checkout nombreDeLaRama <!-- cambia a esa rama -->
+
+
+
+
 
 
 
