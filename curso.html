@@ -41,15 +41,22 @@ $ git reset --soft ShaDelCommit <!-- elimina el commit especificado, SIN modific
 $ git reset --mixed ShaDelCommit <!-- elimina el commit especificado en el staging area, sin modificar el 'working area', sin tocar el código -->
 $ git reset --hard ShaDelCommit <!-- viaja hasta el commit especificado y borra todo lo posterior, inclusive el código-->
 
+
 <!-- el Commit HEAD es donde nos encontramos ahora
 Las Ramas son una linea de tiempo en nuestro proyecto, que nos sirve para arreglar errores, experimentar, etc. -->
 
 $ git branch nombreDeLaRama <!-- crea una rama con ese nombre -->
 $ git checkout nombreDeLaRama <!-- cambia a esa rama -->
+$ git checkout -b nombreDeLaRama <!-- crea una rama y nos cambia a ella -->
+
 
 <!-- Fusion: ir a la rama que va a absorver los cambios -->
 $ git checkout master 
 $ git merge nombreDeLaRama <!-- rama que va a ser absorvida -->
+<!-- Puede hacerse fusión 'Fast-forward' que es simple y automática, o 'Manual merge', que se usa al trabajar en equipo y es larga y manual -->
+
+$git branch -D nombreDeLaRama <!-- elimina la rama especificada -->
+
 
 
 
