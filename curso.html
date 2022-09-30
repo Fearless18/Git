@@ -66,6 +66,36 @@ $ git remote add origin git@github.com:Fearless18/Test.git
 $ git remote -v <!-- nos muestra a donde está vinculado en github -->
 $ git remote remove origin <!-- desvincula el proyecto local con el de github -->
 
+$ git push <!-- manda nuestros cambios (commits) al remoto -->
+$ git push origin NombreDeLaRama
+$ git push origin master
+
+<!-- Issues: forma de mejorar o solucionar un error en nuestro proyecto.
+	Milestones: grupos de issues que aplican a un proyecto, característica, o período de tiempo.
+ git commit --amend -m "corregimos el nombre del último commit o commit actual" -->
+
+$ git push origin master -f <!-- fuerza a subir los cambios, porque como no se modificó el código no subiría el cambio del nombre en el commit-->
+
+<!-- Clase 6 -->
+
+<!-- Git Tags: puntos específicos en la historia del proyecto, y se usan para marcar una versión del mismo. -->
+
+$ git tag v1.0 <!-- Tags ligeras: simples con poca info -->
+
+$ git tag -a v1.0 -m "mensaje" <!-- Tags anotadas: son almacenadas como objetos completos dentro de la base Git, y contienen mas información . Se lo aplica al commit actual (último) -->
+
+$ git tag -a v1.0 -m "mensaje" d5a09d67d08423ee5e49957cd510f932e4146db4 <!-- aplica el Tag al commit especificado -->
+$ git push origin v1.0 <!-- se usa el nombre del tag para subirlo a github, no se pone 'master' -->
+$ git push origin --tags <!-- sube todos los tags -->
+
+
+
+
+
+
+
+
+
 
 
 
