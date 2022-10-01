@@ -28,8 +28,9 @@ $ git add nombredelarchivo  <!-- agrega el archivo al modo Stage como para luego
 $ git add -A  <!-- agrega todo -->
 
 
-
 $ git commit -m "mensaje" <!-- Guardamos los cambios con un mensaje para identificarlo -->
+$ git commit --amend -m "corregimos el nombre del último commit o commit actual" 
+
 
 $ git log <!-- nos da una lista de los commits y sus SHA -->
 $ git log > commits.txt <!-- guarda la lista de los commits en un .txt -->
@@ -71,12 +72,13 @@ $ git push origin NombreDeLaRama
 $ git push origin master
 
 <!-- Issues: forma de mejorar o solucionar un error en nuestro proyecto.
-	Milestones: grupos de issues que aplican a un proyecto, característica, o período de tiempo.
- git commit --amend -m "corregimos el nombre del último commit o commit actual" -->
+ 	 Milestones: grupos de issues que aplican a un proyecto, característica, o período de tiempo. -->
 
 $ git push origin master -f <!-- fuerza a subir los cambios, porque como no se modificó el código no subiría el cambio del nombre en el commit-->
 
+
 <!-- Clase 6 -->
+
 
 <!-- Git Tags: puntos específicos en la historia del proyecto, y se usan para marcar una versión del mismo. -->
 
