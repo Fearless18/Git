@@ -77,7 +77,9 @@ $ git push origin master
 $ git push origin master -f <!-- fuerza a subir los cambios, porque como no se modificó el código no subiría el cambio del nombre en el commit-->
 
 
+
 <!-- Clase 6 -->
+
 
 
 <!-- Git Tags: puntos específicos en la historia del proyecto, y se usan para marcar una versión del mismo. -->
@@ -92,16 +94,80 @@ $ git push origin --tags <!-- sube todos los tags -->
 
 
 
+<!-- Clase 7 -->
 
 
 
+<!-- Workflows: flujos de trabajo -->
+
+$ git fetch origin <!-- bajamos los cambios del remoto -->
+<!-- origin/master es una rama oculta en donde se descargan las cosas al hacer un fetch, y luego tenemos que hacerle merge a nuestro master -->
+$ git merge origin/master <!-- hace merge de los cambios que descargamos con lo que tenemos en nuestra pc -->
+
+
+<!-- Fork: hacer una copia de un repositorio ajeno, a nuestro perfil -->
+$ git fetch upstream 
+<!-- upstream/master, es la rama oculta del repositorio ajeno. Tenemos que descargar los cambios de nuestro proyecto y los del dueño original -->
+
+<!-- si solucionamos algún error en el código y queremos compartirlo con los dueño del original del que hicimos fork, tenemos que hacer un "Pull Request" -->
 
 
 
+<!-- Clase 8: Github Pages -->
 
 
 
+<!-- Podemos tener nuestra página hosteada en github (solo html/css/js), creando un repositorio con el nombre de nuestro usuario mas .github.io, en mi caso Fearless18.github.io, y esa sería nuestra URL.
+	También podemos crear para nuestro proyecto, pero para eso tendríamos que crear un branch en el mismo, que se llame gh-pages y pushear el contenido de nuestra web ahí.
+Fearless18.github.io
+Fearless18.github.io/Git
+-->
 
+
+
+<!-- Clase 9: Deployment -->
+
+
+
+<!-- con nuestra clave publica de SSH (carpeta .ssh), podemos conectarnos con nuestro hosting/servidor. Hay que conectar nuestra pc con el hosting y luego el agregar el ssh a github -->
+ssh-keygen <!-- crea una clave SSH -->
+
+# .ssh root@nuestrapaginaweb.com   ó
+# .ssh IPdelHosting
+
+<!-- nos conecta al hosting y la consola queda conectada allá -->
+
+# apt-get install git <!-- para instalar Git en el hosting https://git-scm.com/download/linux-->
+
+# .ssh-keygen <!-- para crear una llave también en el servidor y agregarla a Github -->
+
+# .git pull <!-- hace un fetch y merge a la vez -->
+# .git pull origin develop <!-- baja las cosas de github al hosting? -->
+
+
+
+<!-- Clase 10: Hooks -->
+
+
+
+<!-- Mecanismos para activar scripts, cuando suceden ciertas cosas -->
+# cd .git
+# cd hooks
+# touch post-commit <!-- crea el archivo post-commit -->
+# nano post-commit <!-- edita el archivo post-commit -->
+	#!/bin/sh <!-- no es necesario pero sirve para saber que es un Shell Script-->
+	git push origin Develop
+	ssh root@filisantilla.com 'bash -s' < deployment.sh
+
+# cat post-commit <!-- muestra el contenido del archivo -->
+# chmod +x post-commit <!-- le da permisos al hook -->
+
+<!-- en la carpeta raiz de nuestra web -->
+# touch deployment.sh
+# nano deployment.sh
+	cd ..var/www/ghost/content/ <!-- donde esté nuestra web en el host -->
+	git pull origin Develop
+	sudo service ghost restart <!-- reinicia el servidor del host -->
 
 
 
